@@ -147,7 +147,7 @@ def load_model_(filename, model_type="keras"):
     return model
 
 def load_ruder_10_authors():
-    model = load_model_("../models/ruder-01-0.91.hdf5")
+    model = load_model_("../models/ruder-09-0.97.hdf5")
     return model
 
 
