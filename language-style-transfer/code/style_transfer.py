@@ -54,14 +54,19 @@ class Model(object):
         self.labels = tf.placeholder(tf.float32, [None],
             name='labels')
 
+        # passed into Model
         labels = tf.reshape(self.labels, [-1, 1])
 
         embedding = tf.get_variable('embedding',
             initializer=vocab.embedding.astype(np.float32))
+
+        # define projW - weights and projb - bias for every word
+        # dim h is dim of hidden state (dim y + dim z)
         with tf.variable_scope('projection'):
             proj_W = tf.get_variable('W', [dim_h, vocab.size])
             proj_b = tf.get_variable('b', [vocab.size])
 
+        # extracts embeddings from embedding matrix for inputs and outputs
         enc_inputs = tf.nn.embedding_lookup(embedding, self.enc_inputs)
         dec_inputs = tf.nn.embedding_lookup(embedding, self.dec_inputs)
 
