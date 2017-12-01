@@ -1,0 +1,6 @@
+- create tmp/ in language-style-transfer/
+- cd to language-style-tranfer/code
+
+python style_transfer.py --train ../data/tweets/author.train --dev ../data/tweets/author.dev --output ../tmp/author.dev --vocab ../tmp/author.vocab --model ../tmp/model
+
+python style_transfer.py --test ../data/tweets/author.test --output ../tmp/author.test --vocab ../tmp/tweets.vocab --model ../tmp/model --load_model true
